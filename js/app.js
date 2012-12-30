@@ -1,4 +1,4 @@
-$(document).ready(setInterval(function () {
+$(document).ready(function () {
   $('#search').submit(function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -16,12 +16,15 @@ $(document).ready(setInterval(function () {
     }).done(function (response) {
       var results = response.results;
       for (var i = 0; i < results.length; i++) {
-        $("#tweet").prepend("<p class='tweet'>" +
+        $("#tweet").prepend("<li class='tweet'>" +
+          	"<img src='" + 
+          results[i].profile_image_url + 
+          "'/>" +
           "<span class='username'>" +
           results[i].from_user +
           "</span> <span class='tweet_content'> " +
-          results[i].text + "</span></p>");
+          results[i].text + "</span></li>");
       }
     });
   });
-}),7000);
+});
