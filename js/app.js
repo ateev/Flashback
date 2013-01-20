@@ -1,3 +1,9 @@
+
+
+
+
+
+
 $(document).ready(function () {
   $('#search').submit(function (e) {
     e.preventDefault();
@@ -5,6 +11,11 @@ $(document).ready(function () {
     //var hashtag = $(this).find('input[name="hashtag"]').val();
     var hashtag = $('input[name = hashtag]').val();
     var twitterapi = "http://search.twitter.com/search.json?";
+   setInterval(flashback,15000);
+	function flashback()
+	{
+
+
     jQuery.ajax({
       type: "GET",
       url: twitterapi,
@@ -26,5 +37,7 @@ $(document).ready(function () {
           results[i].text + "</span></li>");
       }
     });
+    }
   });
 });
+
